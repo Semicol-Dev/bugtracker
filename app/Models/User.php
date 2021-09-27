@@ -23,6 +23,9 @@ class User extends Authenticatable
         return $this->role->name == "Administrator";
     }
 
+    public function isDev(){
+        return $this->role->name == "Developer";
+    }
     /**
      * The attributes that are mass assignable.
      *
