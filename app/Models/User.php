@@ -19,6 +19,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
+    public function isAdmin(){
+        return $this->role->name == "Administrator";
+    }
+
     /**
      * The attributes that are mass assignable.
      *
