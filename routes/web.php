@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +18,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::resource('project', ProjectController::class)->middleware('auth');
+Route::resource('team', TeamController::class)->middleware('auth');
 Route::resource('home', HomeController::class)->middleware('auth');
