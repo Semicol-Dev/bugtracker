@@ -14,7 +14,7 @@ class AddRolesToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role_id')->after('remember_token');
+            $table->Integer('role_id')->after('remember_token');
         });
     }
 
