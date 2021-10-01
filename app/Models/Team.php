@@ -12,4 +12,11 @@ class Team extends Model
     function users(){
         return $this->belongsToMany('App\Models\User');
     }
+
+    function issues(){
+        return $this->hasMany('App\Models\Issue');
+    }
+    function projects(){
+        return $this->hasMany('App\Models\Project');
+    }
 }

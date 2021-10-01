@@ -26,6 +26,10 @@ class User extends Authenticatable
     public function isDev(){
         return $this->role->name == "Developer";
     }
+    
+    function issues(){
+        return $this->hasMany('App\Models\Issue');
+    }
     /**
      * The attributes that are mass assignable.
      *
