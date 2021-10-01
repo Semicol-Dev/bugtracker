@@ -15,9 +15,11 @@ class CreateIssuesTable extends Migration
         Schema::create('issues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('description');
             $table->integer('project_id');
-            $table->boolean('status');
+            $table->integer('status');
             $table->integer('type');
+            $table->integer('team_id');
             $table->integer('user_id');
             $table->timestamps();
         });
