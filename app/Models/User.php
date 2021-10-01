@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function teams(){
+    public function team(){
         return $this->belongsToMany('App\Models\Team');
     }
 
@@ -26,8 +26,8 @@ class User extends Authenticatable
     public function isDev(){
         return $this->role->name == "Developer";
     }
-    
-    function issues(){
+
+    public function issues(){
         return $this->hasMany('App\Models\Issue');
     }
     /**

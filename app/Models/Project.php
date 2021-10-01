@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    public function team(){
+        return $this->hasOne('App\Models\Team');
+    }
 }

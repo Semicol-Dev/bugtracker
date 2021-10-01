@@ -9,14 +9,15 @@ class Team extends Model
 {
     use HasFactory;
 
-    function users(){
+    public function users(){
         return $this->belongsToMany('App\Models\User');
     }
 
-    function issues(){
+    public function issues(){
         return $this->hasMany('App\Models\Issue');
     }
-    function projects(){
+    
+    public function projects(){
         return $this->hasMany('App\Models\Project');
     }
 }
