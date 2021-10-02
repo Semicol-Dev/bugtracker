@@ -30,6 +30,34 @@ class User extends Authenticatable
     public function issues(){
         return $this->hasMany('App\Models\Issue');
     }
+    public function isOnTeam($id){
+        foreach ($this->team as $team) {
+            if ($team->id == $id){
+                return true;
+            }
+        }
+        return false;
+    }
+    public function all_projects(){
+        $all_projects = array();
+        foreach (auth()->user()->team as $team) {
+            foreach ($team->projects as $project) {
+                array_push($all_projects,$project);
+            }
+        }
+        return $all_projects;
+    }
+
+    public function all_issues(){
+        $all_issues = array();
+        foreach (auth()->user()->all_projects() as $project) {
+            foreach ($project->issues as $issue) {
+                array_push($all_issues,$issue);
+            }
+        }
+        return $all_issues;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
