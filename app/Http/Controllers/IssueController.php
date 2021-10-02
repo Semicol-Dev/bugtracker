@@ -156,13 +156,6 @@ class IssueController extends Controller
         return redirect("/issue/$id");
     }
 
-    public function change_assigned($id, Request $request)
-    {
-    }
-
-    public function close($id)
-    {
-    }
 
     public function note_delete($id)
     {
