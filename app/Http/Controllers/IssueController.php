@@ -71,7 +71,7 @@ class IssueController extends Controller
     {
         $users = User::all();
         $issue = Issue::findOrFail($id);
-        return view('dashboard.issue.show')->with('issue', $issue)->with('users',$users);
+        return view('dashboard.issue.show')->with('issue', $issue)->with('users', $users);
     }
 
     /**
@@ -106,7 +106,7 @@ class IssueController extends Controller
     public function destroy($id)
     {
         $issue = Issue::findOrFail($id);
-        if (auth()->user()->isAdmin()) {
+        if (auth()->user()->isAdmin() || auth()->user()->id == $issue->created_user_id) {
             // odstranenie vsetkych komentarov
             foreach ($issue->comments as $comment) {
                 $comment->delete();
@@ -121,6 +121,25 @@ class IssueController extends Controller
             $issue->delete();
         }
         return redirect('/issue');
+    }
+    public function assign($id, Request $request)
+    {
+        if (auth()->user()->isAdmin() || auth()->user()->isDev()) {
+            if (auth()->user()->isDev()) {
+                if (auth()->user()->id != $request->user_id) {
+                    abort(404);
+                }
+            }
+            $validated = $request->validate([
+                'user_id' => 'required',
+            ]);
+            $issue = Issue::findOrFail($id);
+            $issue->assigned_user_id = $request->user_id;
+            $issue->save();
+            return redirect("/issue/$id");
+        } else {
+            abort(404);
+        }
     }
     public function note($id, Request $request)
     {
