@@ -8,6 +8,11 @@
             <strong>Title</strong>
         </td>
     </tr>
+    @foreach ($project->issues as $issue)
+        <td>
+            <a href="/issue/{{$issue->id}}">{{$issue->title}}</a>
+        </td>
+    @endforeach
 </table>
 
 @if (auth()->user()->isAdmin())

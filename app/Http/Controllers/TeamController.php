@@ -15,12 +15,16 @@ class TeamController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->isAdmin()){
-            $teams = Team::all();
+        if (auth()->user()->isAdmin() || auth()->user()->isDev()){
+            if (auth()->user()->isAdmin()){
+                $teams = Team::all();
+            } else {
+                $teams = auth()->user()->team;
+            }
+            return view('dashboard.team.index')->with('teams',$teams);
         } else {
-            $teams = auth()->user()->team;
+            abort(404);
         }
-        return view('dashboard.team.index')->with('teams',$teams);
     }
 
     /**

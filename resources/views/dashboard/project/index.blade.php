@@ -1,5 +1,8 @@
 <h1>Vsetky Projekt</h1>
-<a href="/project/create">Vytvorit novy Projekt</a>
+@if (auth()->user()->isAdmin())
+    <a href="/project/create">Vytvorit novy Projekt</a>
+@endif
+
 <table border=1>
     <tr>
         <td>Meno</td>

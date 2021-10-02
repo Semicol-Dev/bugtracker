@@ -17,9 +17,10 @@ class ProjectController extends Controller
     {
 
         if (auth()->user()->isAdmin()){
-            $projects = auth()->user()->all_projects();
-        } else {
             $projects = Project::all();
+        } else {
+            $projects = auth()->user()->all_projects();
+            
         }
         return view('dashboard.project.index')->with('projects',$projects);
 

@@ -64,7 +64,10 @@
 <form method="post" name="comments_form" id="comments_form" action="/issue/{{ $issue->id }}/note">
     @csrf
     <textarea name="comment" form="comments_form" placeholder="Komentár"></textarea><br>
-    Interny komentar: <input type="checkbox" name="hidden_comment" id=""><br />
+    @if (auth()->user()->isAdmin() ||auth()->user()->isDev())
+        Interny komentar: <input type="checkbox" name="hidden_comment" id=""><br />        
+    @endif
+
     <input type="submit" value="Odoslat komentar">
 </form>
 
@@ -120,7 +123,7 @@
             <tr>
                 <td>{{ $comment->user->name }}</td>
                 <td>{{ $comment->created_at }}</td>
-                @if (auth()->user()->id == $comment->user_id)
+                @if (auth()->user()->id == $comment->user_id || auth()->user()->isAdmin())
                     <td><a href="/issue/note/delete/{{ $comment->id }}">Zmazat</a></td>
                 @endif
             </tr>
