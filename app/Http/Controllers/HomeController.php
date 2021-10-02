@@ -7,13 +7,16 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-       return view('dashboard.index');
+       $issue = \App\Models\Issue::findOrFail(1);
+       echo "Assigned User -" . $issue->assigned->name;
+       echo "<hr>Vytvotil User - " . $issue->created_by->name;
     }
 
     /**
