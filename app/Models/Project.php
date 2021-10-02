@@ -9,6 +9,9 @@ class Project extends Model
 {
     use HasFactory;
     public function team(){
-        return $this->hasOne('App\Models\Team');
+        return $this->belongsTo('App\Models\Team');
+    }
+    public function issues(){
+        return $this->hasMany('App\Models\Issue');
     }
 }

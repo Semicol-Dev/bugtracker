@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Project;
+use App\Models\Team;
 
 class ProjectController extends Controller
 {
@@ -13,7 +15,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+
+        if (auth()->user()->isAdmin()){
+            $projects = auth()->user()->all_projects();
+        } else {
+            $projects = Project::all();
+        }
+        return view('dashboard.project.index')->with('projects',$projects);
+
     }
 
     /**
@@ -23,7 +32,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $teams = Team::all();
+            return view('dashboard.project.create')->with('teams',$teams);
+        }
     }
 
     /**
@@ -34,7 +46,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $validated = $request->validate([
+                'name' => 'required',
+                'team' => 'required',
+            ]);
+            $project = new Project;
+            $project->name = $request->name;
+            $project->team_id = $request->team;
+            $project->save();
+            return redirect("/project/$project->id");
+        } else {
+            return redirect('/project');
+        }
     }
 
     /**
@@ -45,7 +69,12 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        if ( auth()->user()->isOnTeam($project->team_id) || auth()->user()->isAdmin() ){
+           return view('dashboard.project.show')->with('project',$project);
+        } else {
+            return redirect('/project');
+        }
     }
 
     /**
@@ -56,7 +85,11 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $project = Project::findOrFail($id);
+            $teams = Team::all();
+            return view('dashboard.project.edit')->with('project',$project)->with('teams',$teams);
+        }
     }
 
     /**
@@ -68,7 +101,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $validated = $request->validate([
+                'name' => 'required',
+                'team' => 'required',
+            ]);
+            $project = Project::findOrFail($id);
+            $project->name = $request->name;
+            $project->team_id = $request->team;
+            $project->update();
+            return redirect("/project/$id");
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
@@ -79,6 +124,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $project = Project::findOrFail($id);
+            $project->delete();
+            return redirect('/project');
+        } else {
+            return redirect("/project/$id");
+        }
     }
 }
