@@ -26,6 +26,8 @@ Route::get('/', function () {
 
 
 Route::post('issue/{id}/note', ['App\Http\Controllers\IssueController','note'])->middleware('auth');
+Route::post('issue/{id}/assign', ['App\Http\Controllers\IssueController','assign'])->middleware('auth');
+
 Route::post('file/upload', ['App\Http\Controllers\FileController','store'])->middleware('auth');
 Route::get('file/{id}', ['App\Http\Controllers\FileController','get'])->middleware('auth');
 Route::get('file/{id}/delete', ['App\Http\Controllers\FileController','destroy'])->middleware('auth');
