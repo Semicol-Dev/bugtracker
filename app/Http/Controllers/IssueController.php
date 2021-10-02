@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Issue;
 use \App\Models\Project;
+use \App\Models\User;
 use \App\Models\Comment;
 
 class IssueController extends Controller
@@ -16,13 +17,12 @@ class IssueController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->isAdmin()){
+        if (auth()->user()->isAdmin()) {
             $issues = Issue::all();
         } else {
             $issues = auth()->user()->all_issues();
         }
-        return view('dashboard.issue.index')->with('issues',$issues);
-        
+        return view('dashboard.issue.index')->with('issues', $issues);
     }
 
     /**
@@ -33,7 +33,7 @@ class IssueController extends Controller
     public function create()
     {
         $projects = Project::all();
-        return view('dashboard.issue.create')->with('projects',$projects);
+        return view('dashboard.issue.create')->with('projects', $projects);
     }
 
     /**
@@ -58,6 +58,7 @@ class IssueController extends Controller
         $issue->status = 0;
         $issue->created_user_id = auth()->user()->id;
         $issue->save();
+        return redirect("/issue/$issue->id");
     }
 
     /**
@@ -68,8 +69,9 @@ class IssueController extends Controller
      */
     public function show($id)
     {
+        $users = User::all();
         $issue = Issue::findOrFail($id);
-        return view('dashboard.issue.show')->with('issue',$issue);
+        return view('dashboard.issue.show')->with('issue', $issue)->with('users',$users);
     }
 
     /**
@@ -103,14 +105,30 @@ class IssueController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $issue = Issue::findOrFail($id);
+        if (auth()->user()->isAdmin()) {
+            // odstranenie vsetkych komentarov
+            foreach ($issue->comments as $comment) {
+                $comment->delete();
+            }
+            // odstranenie moznych suborov
+            foreach ($issue->files as $file) {
+                $pathFile = "../storage/app/" . $file->file;
+                $file->delete();
+                unlink($pathFile);
+            }
+            // finalne odstranenie
+            $issue->delete();
+        }
+        return redirect('/issue');
     }
-    public function note($id,Request $request){
+    public function note($id, Request $request)
+    {
         $comment = new Comment;
         $comment->text = $request->comment;
         $comment->issue_id = $id;
         $comment->user_id = auth()->user()->id;
-        if ($request->hidden_comment == "on"){
+        if ($request->hidden_comment == "on") {
             $comment->internal = true;
         } else {
             $comment->internal = false;
@@ -119,11 +137,18 @@ class IssueController extends Controller
         return redirect("/issue/$id");
     }
 
+    public function change_assigned($id, Request $request)
+    {
+    }
 
+    public function close($id)
+    {
+    }
 
-    public function note_delete($id){
+    public function note_delete($id)
+    {
         $comment = Comment::FindOrFail($id);
-        if (auth()->user()->id == $comment->user_id || auth()->user()->isAdmin()){
+        if (auth()->user()->id == $comment->user_id || auth()->user()->isAdmin()) {
             $issue_id = $comment->issue_id;
             $comment->delete();
             return redirect("/issue/$issue_id");
