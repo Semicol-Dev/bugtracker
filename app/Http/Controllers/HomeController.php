@@ -14,9 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $issue = \App\Models\Issue::findOrFail(1);
-       echo "Assigned User -" . $issue->assigned->name;
-       echo "<hr>Vytvotil User - " . $issue->created_by->name;
+       return view('dashboard.index');
     }
 
     /**

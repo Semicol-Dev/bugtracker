@@ -24,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/',function(){ return redirect('/home');})->middleware('auth');
 
 Route::post('issue/{id}/note', ['App\Http\Controllers\IssueController','note'])->middleware('auth');
 Route::post('issue/{id}/assign', ['App\Http\Controllers\IssueController','assign'])->middleware('auth');
@@ -37,5 +38,5 @@ Route::get('issue/note/delete/{id}', ['App\Http\Controllers\IssueController','no
 Route::resource('project', ProjectController::class)->middleware('auth');
 Route::resource('team', TeamController::class)->middleware('auth');
 Route::resource('issue', IssueController::class)->middleware('auth');
-Route::resource('home', HomeController::class)->middleware('auth');
+Route::resource('/home', HomeController::class)->middleware('auth');
 Route::get('admin', ['App\Http\Controllers\AdminController','index'])->middleware('isAdmin');
