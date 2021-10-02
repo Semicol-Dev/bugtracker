@@ -19,8 +19,8 @@ class CreateIssuesTable extends Migration
             $table->integer('project_id');
             $table->integer('status');
             $table->integer('type');
-            $table->integer('team_id');
-            $table->integer('user_id');
+            $table->integer('assigned_user_id')->default('0');
+            $table->integer('created_user_id');
             $table->timestamps();
         });
     }
