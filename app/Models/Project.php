@@ -14,4 +14,12 @@ class Project extends Model
     public function issues(){
         return $this->hasMany('App\Models\Issue');
     }
+
+    public function complete_del(){
+        foreach ($this->issues as $issue) {
+            $issue->complete_del();
+        }
+        $this->delete();
+        return true;
+    }
 }

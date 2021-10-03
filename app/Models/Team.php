@@ -38,5 +38,14 @@ class Team extends Model
         }
         return $all_issues;
     }
+    public function complete_del(){
+        foreach ($this->projects as $project) {
+            $project->complete_del();
+        }
+        // remove pivot
+        $this->users()->sync([]);        
+        // delete team
+        $this->delete();
+    }
 
 }

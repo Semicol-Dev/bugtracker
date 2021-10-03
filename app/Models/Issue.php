@@ -28,5 +28,18 @@ class Issue extends Model
     function files(){
         return $this->hasMany('\App\Models\File');
     }
+
+    function complete_del(){
+        // complete del comments
+        foreach ($this->comments as $comment) {
+            $comment->delete();
+        }
+        // complete del files
+        foreach ($this->files as $files) {
+            $files->complete_del();
+        }
+        $this->delete();
+        
+    }
     use HasFactory;
 }

@@ -11,4 +11,10 @@ class File extends Model
     public function user(){
         return $this->belongsTo('\App\Models\User');
     }
+    public function complete_del(){
+        $pathFile = "../storage/app/" . $this->file;
+        $this->delete();
+        unlink($pathFile);
+        return true;
+    }
 }
