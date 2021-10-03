@@ -126,8 +126,9 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         if (auth()->user()->isAdmin()){
+            // zmazanie vsetkych ticketov
             $project = Project::findOrFail($id);
-            $project->delete();
+            $project->complete_del();
             return redirect('/project');
         } else {
             return redirect("/project/$id");

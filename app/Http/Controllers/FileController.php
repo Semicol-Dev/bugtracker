@@ -32,9 +32,7 @@ class FileController extends Controller
     public function destroy($id){
         $file = File::findOrFail($id);
         if (auth()->user()->isAdmin() || (auth()->user()->id == $file->user_id) ){
-            $pathFile = "../storage/app/" . $file->file;
-            $file->delete();
-            unlink($pathFile);
+            $file->complete_del();
             return redirect()->back();
         } else {
             abort(404);

@@ -107,18 +107,7 @@ class IssueController extends Controller
     {
         $issue = Issue::findOrFail($id);
         if (auth()->user()->isAdmin() || auth()->user()->id == $issue->created_user_id) {
-            // odstranenie vsetkych komentarov
-            foreach ($issue->comments as $comment) {
-                $comment->delete();
-            }
-            // odstranenie moznych suborov
-            foreach ($issue->files as $file) {
-                $pathFile = "../storage/app/" . $file->file;
-                $file->delete();
-                unlink($pathFile);
-            }
-            // finalne odstranenie
-            $issue->delete();
+            $issue->complete_del();
         }
         return redirect('/issue');
     }
