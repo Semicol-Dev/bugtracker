@@ -13,5 +13,6 @@ php artisan db:seed --class Roles
 php artisan db:seed --class AdminUser
 php artisan serve
 ```
+PS: je potrebne vygenerovat aj kluc
 
 Defaultný používateľ je ```administrator@no-reply``` a heslo ```password```
