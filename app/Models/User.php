@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use ArrayObject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -68,17 +72,17 @@ class User extends Authenticatable
         return $my_issues;
     }
 
-    public function count_issues($type){
-        $counter = 0;
+    public function type_issue($type){
+        $my_issues = collect();
         foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
                 if ($issue->assigned_user_id == $this->id && $issue->type == $type && $issue->status != 1)
-                $counter = $counter + 1;
+                $my_issues->push($issue);
             }
         }
-        return $counter;
+        return $my_issues;
     }
-
+    
 
 
 
