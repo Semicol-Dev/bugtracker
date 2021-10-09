@@ -57,6 +57,17 @@ class User extends Authenticatable
         }
         return $all_issues;
     }
+    public function my_issues(){
+        $my_issues = array();
+        foreach (auth()->user()->all_projects() as $project) {
+            foreach ($project->issues as $issue) {
+                if ($issue->assigned_user_id == auth()->user()->id)
+                array_push($my_issues,$issue);
+            }
+        }
+        return $my_issues;
+    }
+
 
     /**
      * The attributes that are mass assignable.
