@@ -83,7 +83,14 @@ class User extends Authenticatable
         return $my_issues;
     }
     
-
+    public function solved_issues(){
+        
+        $counter = DB::table('issues')->where('assigned_user_id', $this->id)->where('status',1)
+        ->whereBetween('updated_at',[Carbon::now()->startOfMonth(),Carbon::now()->endOfMonth()])
+        ->get();
+        
+        return $counter;
+    }
 
 
     /**
