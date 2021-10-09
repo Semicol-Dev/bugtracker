@@ -40,7 +40,7 @@ class User extends Authenticatable
     }
     public function all_projects(){
         $all_projects = array();
-        foreach (auth()->user()->team as $team) {
+        foreach ($this->team as $team) {
             foreach ($team->projects as $project) {
                 array_push($all_projects,$project);
             }
@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function all_issues(){
         $all_issues = array();
-        foreach (auth()->user()->all_projects() as $project) {
+        foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
                 array_push($all_issues,$issue);
             }
@@ -59,14 +59,27 @@ class User extends Authenticatable
     }
     public function my_issues(){
         $my_issues = array();
-        foreach (auth()->user()->all_projects() as $project) {
+        foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
-                if ($issue->assigned_user_id == auth()->user()->id)
+                if ($issue->assigned_user_id == $this->id && $issue->status != 1)
                 array_push($my_issues,$issue);
             }
         }
         return $my_issues;
     }
+
+    public function count_issues($type){
+        $counter = 0;
+        foreach ($this->all_projects() as $project) {
+            foreach ($project->issues as $issue) {
+                if ($issue->assigned_user_id == $this->id && $issue->type == $type && $issue->status != 1)
+                $counter = $counter + 1;
+            }
+        }
+        return $counter;
+    }
+
+
 
 
     /**
