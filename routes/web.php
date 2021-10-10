@@ -33,6 +33,7 @@ Route::post('file/upload', ['App\Http\Controllers\FileController','store'])->mid
 Route::get('file/{id}', ['App\Http\Controllers\FileController','get'])->middleware('auth');
 Route::get('file/{id}/delete', ['App\Http\Controllers\FileController','destroy'])->middleware('auth');
 
+Route::get('issue/search', ['App\Http\Controllers\IssueController','search'])->middleware('auth');
 Route::get('issue/note/delete/{id}', ['App\Http\Controllers\IssueController','note_delete'])->middleware('auth');
 
 Route::resource('project', ProjectController::class)->middleware('auth');
