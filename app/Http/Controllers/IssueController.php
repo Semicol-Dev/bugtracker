@@ -157,4 +157,10 @@ class IssueController extends Controller
             return redirect('/');
         }
     }
+
+    public function search(Request $request){
+        $search = $request->search;
+        $issues = Issue::query()->where('title', 'LIKE', "%{$search}%")->orWhere('description', 'LIKE', "%{$search}%")->get();
+        return view('dashboard.issue.search')->with('issues',$issues);
+    }
 }
