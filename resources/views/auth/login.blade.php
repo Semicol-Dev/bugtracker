@@ -1,4 +1,9 @@
-<h1>Prihlasenie</h1>
+@extends('baseStructure')
+@section('title')
+    EditedTitle
+@endsection
+@section('content')
+<h1>Login</h1>
 <form method="POST" action="{{ route('login') }}">
     @csrf
     <label for="email">{{ __('E-Mail Address') }}</label>
@@ -39,3 +44,4 @@
     @endif
 
 </form>
+@endsection
