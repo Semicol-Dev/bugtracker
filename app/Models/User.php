@@ -10,86 +10,97 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use \App\Models\Issue;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function team(){
+    public function team()
+    {
         return $this->belongsToMany('App\Models\Team');
     }
 
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo('App\Models\Role');
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->role->name == "Administrator";
     }
 
-    public function isDev(){
+    public function isDev()
+    {
         return $this->role->name == "Developer";
     }
 
-    public function issues(){
+    public function issues()
+    {
         return $this->hasMany('App\Models\Issue');
     }
-    public function isOnTeam($id){
+    public function isOnTeam($id)
+    {
         foreach ($this->team as $team) {
-            if ($team->id == $id){
+            if ($team->id == $id) {
                 return true;
             }
         }
         return false;
     }
-    public function all_projects(){
+    public function all_projects()
+    {
         $all_projects = array();
         foreach ($this->team as $team) {
             foreach ($team->projects as $project) {
-                array_push($all_projects,$project);
+                array_push($all_projects, $project);
             }
         }
         return $all_projects;
     }
 
-    public function all_issues(){
+    public function all_issues()
+    {
         $all_issues = array();
         foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
-                array_push($all_issues,$issue);
+                array_push($all_issues, $issue);
             }
         }
         return $all_issues;
     }
-    public function my_issues(){
-        $my_issues = array();
-        foreach ($this->all_projects() as $project) {
-            foreach ($project->issues as $issue) {
-                if ($issue->assigned_user_id == $this->id && $issue->status != 1)
-                array_push($my_issues,$issue);
-            }
-        }
-        return $my_issues;
-    }
-
-    public function type_issue($type){
+    public function my_issues()
+    {
         $my_issues = collect();
         foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
-                if ($issue->assigned_user_id == $this->id && $issue->type == $type && $issue->status != 1)
+                if ($issue->assigned_user_id == $this->id && $issue->status != 1)
                 $my_issues->push($issue);
             }
         }
         return $my_issues;
     }
-    
-    public function solved_issues(){
-        
-        $counter = DB::table('issues')->where('assigned_user_id', $this->id)->where('status',1)
-        ->whereBetween('updated_at',[Carbon::now()->startOfMonth(),Carbon::now()->endOfMonth()])
-        ->get();
-        
-        return $counter;
+
+    public function type_issue($type)
+    {
+        $my_issues = collect();
+        foreach ($this->all_projects() as $project) {
+            foreach ($project->issues as $issue) {
+                if ($issue->assigned_user_id == $this->id && $issue->type == $type && $issue->status != 1)
+                    $my_issues->push($issue);
+            }
+        }
+        return $my_issues;
+    }
+
+    public function solved_issues($month)
+    {
+        if ($month) {
+            return Issue::where('assigned_user_id', $this->id)->where('status', 1)->whereBetween('updated_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->get();
+        } else {
+            return Issue::where('assigned_user_id', $this->id)->where('status', 1)->get();
+        }
     }
 
 
