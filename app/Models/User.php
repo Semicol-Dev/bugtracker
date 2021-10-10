@@ -51,10 +51,10 @@ class User extends Authenticatable
     }
     public function all_projects()
     {
-        $all_projects = array();
+        $all_projects = collect();
         foreach ($this->team as $team) {
             foreach ($team->projects as $project) {
-                array_push($all_projects, $project);
+                $all_projects->push($project);
             }
         }
         return $all_projects;
@@ -62,10 +62,10 @@ class User extends Authenticatable
 
     public function all_issues()
     {
-        $all_issues = array();
+        $all_issues = collect();
         foreach ($this->all_projects() as $project) {
             foreach ($project->issues as $issue) {
-                array_push($all_issues, $issue);
+                $all_issues->push($issue);
             }
         }
         return $all_issues;
