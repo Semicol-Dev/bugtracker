@@ -15,14 +15,23 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if (auth()->user()->isAdmin()) {
-            $issues = Issue::all();
+        if ($request->search == ""){
+            // no get parameter
+            if (auth()->user()->isAdmin()) {
+                $issues = Issue::all();
+            } else {
+                $issues = auth()->user()->all_issues();
+            }
+            return view('dashboard.issue.index')->with('issues', $issues);
         } else {
-            $issues = auth()->user()->all_issues();
+            // search request is provided
+            $search = $request->search;
+            $issues = Issue::query()->where('title', 'LIKE', "%{$search}%")->orWhere('description', 'LIKE', "%{$search}%")->get();
+            return view('dashboard.issue.index')->with('issues',$issues);
+    
         }
-        return view('dashboard.issue.index')->with('issues', $issues);
     }
 
     /**
@@ -156,5 +165,8 @@ class IssueController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    public function search(Request $request){
     }
 }
