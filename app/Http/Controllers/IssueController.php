@@ -139,6 +139,14 @@ class IssueController extends Controller
             abort(404);
         }
     }
+
+    function close($id){
+        // change id for assigned ticket
+        $issue = Issue::findOrFail($id);
+        $issue->status = 1;
+        $issue->assigned_user_id = auth()->user()->id;
+        $issue->save();
+    }
     public function note($id, Request $request)
     {
         $comment = new Comment;
