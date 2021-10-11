@@ -25,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/',function(){ return redirect('/home');})->middleware('auth');
+Route::get('issue/{id}/close', ['App\Http\Controllers\IssueController','close'])->middleware('auth');
 
 Route::post('issue/{id}/note', ['App\Http\Controllers\IssueController','note'])->middleware('auth');
 Route::post('issue/{id}/assign', ['App\Http\Controllers\IssueController','assign'])->middleware('auth');
