@@ -2,11 +2,6 @@
     color: #ffff;
     opacity: 1; 
   }
-.form-control:focus {
-    border-color:  transparent;
-    box-shadow: none !important;
-    
-} 
 .my-search{
     border-radius: 10px;
     display: flex;
@@ -35,6 +30,15 @@
     color: #ffff;
     background-color: rgba(255, 255, 255, 0.116);
 }
+
+.my-profile{
+width: 50px;
+height: 50px;
+border: #ffff;
+background: url(icons/peepoUnicorn.png);
+border-radius: 62px;
+}
+
 @font-face {
     font-family: 'Poppins-SemiBold';
     src: url('fonts/Poppins-SemiBold.ttf') format('truetype');

@@ -12,7 +12,16 @@
             <input type="text" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
         </form>
     </div>
-    <a class="navbar-brand">Navbar</a>
+    <div class="btn-group dropleft">
+        <button class=" my-profile mbtn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another </a>
+          <a class="dropdown-item" href="#">Something </a>
+        </div>
+      </div>
   </nav>
 @yield('core')
 @endsection
