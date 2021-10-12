@@ -38,6 +38,13 @@ border: #ffff;
 background: url(icons/peepoUnicorn.png);
 border-radius: 62px;
 }
+.logo{
+    font-family: 'Monofett-Regular';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 39px;
+    line-height: 48px;
+}
 
 @font-face {
     font-family: 'Poppins-SemiBold';
@@ -46,4 +53,8 @@ border-radius: 62px;
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Monofett-Regular';
+    src: url('fonts/Monofett/Monofett-Regular.ttf') format('truetype');
 }

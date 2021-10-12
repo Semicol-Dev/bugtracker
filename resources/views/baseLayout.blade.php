@@ -1,7 +1,7 @@
 @extends('baseFramework')
 @section('content')
 <nav class="navbar navbar-dark " style="background-color: #0D7377" >
-    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="navbar-brand logo" href="#">BUGTRAC.IO</div>
      <div class="my-search">
         <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -23,5 +23,9 @@
         </div>
       </div>
   </nav>
+  <div class="row">
+    <div class="col-4">col-8</div>
+    <div class="col-8">col-8</div>
+  </div>
 @yield('core')
 @endsection
