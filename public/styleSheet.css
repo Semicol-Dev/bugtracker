@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 ::placeholder { 
     color: #ffff;
     opacity: 1; 
@@ -16,7 +19,7 @@
     resize: none;
     outline: none;
     color: #ffff;
-    font-family: 'Poppins-Regular';
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
@@ -39,22 +42,63 @@ background: url(icons/peepoUnicorn.png);
 border-radius: 62px;
 }
 .logo{
-    font-family: 'Monofett-Regular';
+    font-family: 'Monofett', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 39px;
     line-height: 48px;
 }
+.side-menu{
+    height: 100vh;
+    background-color: #323232;
+}
+.side-menu li:hover{
+    background-color: #0D7377;
+}
+.side-menu ul{
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+.side-menu li{
+    color: #ffff;
+    display: flex;
 
-@font-face {
-    font-family: 'Poppins-SemiBold';
-    src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
 }
-@font-face {
-    font-family: 'Poppins-Regular';
-    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+.side-menu a{
+    color: #ffff;
+     font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.2rem;
 }
-@font-face {
-    font-family: 'Monofett-Regular';
-    src: url('fonts/Monofett/Monofett-Regular.ttf') format('truetype');
+
+.nav-item span{
+    
+    padding-left: 0.3rem;
+    align-items: center;
+}
+.bi-clipboard-data{
+    font-size: 2rem;
+}
+.bi-stickies{
+    font-size: 2rem;
+}
+.bi-people-fill{
+    font-size: 2rem;
+}
+.dropdown-menu{
+    background-color: #323232;
+    color: #ffff;
+
+}
+.dropdown-menu a:hover{
+    background-color: #0D7377;
+    color: #ffff;
+    
+}
+.dropdown-menu a{
+    width: 0.5rem;
+    color: #ffff;
+    
 }

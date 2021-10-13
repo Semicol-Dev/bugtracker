@@ -22,10 +22,32 @@
           <a class="dropdown-item" href="#">Something </a>
         </div>
       </div>
-  </nav>
-  <div class="row">
-    <div class="col-4">col-8</div>
-    <div class="col-8">col-8</div>
+ </nav>
+ <div class="row " >
+  <div class="col-3 side-nav side-menu ">
+      <ul class="nav flex-column">
+          <li class="nav-item">
+            <span>
+              <i class="bi bi-stickies"></i>
+            </span>
+            <a class="nav-link " href="#">Tickets</a>
+            
+          </li>
+          <li class="nav-item">
+            <span>
+              <i class="bi bi-clipboard-data"></i>
+            </span>
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+            <span>
+              <i class="bi bi-people-fill"></i>
+            </span>
+            <a class="nav-link" href="#">Teams</a>
+          </li>
+        </ul>
   </div>
+  <div class="col-9">col-8</div>
+</div>
 @yield('core')
 @endsection
