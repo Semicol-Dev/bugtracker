@@ -22,7 +22,31 @@
           <a class="dropdown-item" href="#">Something </a>
         </div>
       </div>
- </nav>
+</nav>
+<!--
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col-3 side-menu" >
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <h3><i class="bi bi-clipboard-data" style="color: white"></i> </h3>
+        </div>
+        <div class="col-4" style="background-color: rgb(185, 49, 49)">
+          <h3  class="display-5" style="color: white">REEEE</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      
+    </div>
+  </div>
+</div>
+
+
+-->
+
  <div class="row " >
   <div class="col-3 side-nav side-menu ">
       <ul class="nav flex-column">
@@ -46,8 +70,17 @@
             <a class="nav-link" href="#">Teams</a>
           </li>
         </ul>
+        <div class="col align-self-end">
+          <button type="button" class="btn btn-primary"><i class="bi bi-bug-fill"></i>  Report Bug </button>
+          <div class="row">
+            <div class="col" style="background-color: #0D7377">
+              
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-9" style="background-color: #212121">col-8</div>
   </div>
-  <div class="col-9">col-8</div>
-</div>
+
 @yield('core')
 @endsection
