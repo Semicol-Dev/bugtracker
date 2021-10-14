@@ -23,6 +23,7 @@
         </div>
       </div>
 </nav>
+
 <!--
 <div class="container-fluid padding">
   <div class="row padding">
@@ -43,44 +44,32 @@
     </div>
   </div>
 </div>
-
-
 -->
-
- <div class="row " >
-  <div class="col-3 side-nav side-menu ">
-      <ul class="nav flex-column">
-          <li class="nav-item">
-            <span>
-              <i class="bi bi-stickies"></i>
-            </span>
-            <a class="nav-link " href="#">Tickets</a>
-            
-          </li>
-          <li class="nav-item">
-            <span>
-              <i class="bi bi-clipboard-data"></i>
-            </span>
-            <a class="nav-link" href="#">Projects</a>
-          </li>
-          <li class="nav-item">
-            <span>
-              <i class="bi bi-people-fill"></i>
-            </span>
-            <a class="nav-link" href="#">Teams</a>
-          </li>
-        </ul>
-        <div class="col align-self-end">
-          <button type="button" class="btn btn-primary"><i class="bi bi-bug-fill"></i>  Report Bug </button>
-          <div class="row">
-            <div class="col" style="background-color: #0D7377">
-              
-            </div>
-          </div>
+<div class="container-fluid"> 
+  <div class="row " >
+    <div class="col-2 side-menu">
+      <div class="row">
+        <div class="col-12">
+          <br>
+          <nav class="nav flex-column">
+            <a class="nav-link active" href="#"><i class="bi bi-stickies-fill"></i>Tickets</a>
+            <a class="nav-link" href="#"><i class="bi bi-file-bar-graph-fill"></i>Projects</a>
+            <a class="nav-link" href="#"><i class="bi bi-people-fill"></i>Teams</a>
+          </nav>
+         
         </div>
+      </div>
+      <button class="btn btn-template btndisclaimer" type="submit"><i class="bi bi-bug-fill"></i>Report Bug</button>
+    </div> 
+    <div class="col" style="background-color: #101010">
+
+      
     </div>
-    <div class="col-9" style="background-color: #212121">col-8</div>
   </div>
+</div>
+
+
+ 
 
 @yield('core')
 @endsection

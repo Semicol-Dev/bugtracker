@@ -49,35 +49,22 @@ border-radius: 62px;
     line-height: 3rem;
 }
 .side-menu{
+    min-width: 15rem;
     height: 100vh;
     background-color: #323232;
 }
-.side-menu li:hover{
-    background-color: #0D7377;
-}
-.side-menu ul{
-    padding-top: 1rem;
-    padding-left: 1rem;
-}
-.side-menu li{
-    color: #ffff;
-    display: flex;
 
-}
 .side-menu a{
     color: #ffff;
      font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 2rem;
-    line-height: 2.2rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
 }
-
-.nav-item span{
-    
-    padding-left: 0.3rem;
-    align-items: center;
-}
+.side-menu a:hover{
+    background-color: #0D7377;
+}/*
 .bi-clipboard-data{
     font-size: 2rem;
 }
@@ -86,7 +73,7 @@ border-radius: 62px;
 }
 .bi-people-fill{
     font-size: 2rem;
-}
+}*/
 .dropdown-menu{
     padding: 0.7rem;
     background-color: #323232;
@@ -106,3 +93,24 @@ border-radius: 62px;
     line-height: 1rem;
     
 }
+.btndisclaimer {
+    position: fixed;
+    left: 2rem;
+    bottom: 2.5rem;
+  }
+  .btn-template{
+    
+    background-color: #14FFEC;
+    color: #101011;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    font-weight: 300;
+  }
+  .btn-template:hover{
+    border-color: #0D7377;
+  }
+  i{
+      padding-right: 0.5rem;
+  }
