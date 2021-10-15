@@ -1,0 +1,116 @@
+body{
+    overflow: hidden;
+}
+::placeholder { 
+    color: #ffff;
+    opacity: 1; 
+  }
+.my-search{
+    border-radius: 10px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.116);
+   
+}
+.my-search input{
+    border-radius: 0px 10px 10px 0px;
+    padding-left: 0.5rem;
+    display: flex;
+    border: unset;
+    resize: none;
+    outline: none;
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    background-color: rgba(255, 255, 255, 0.116);
+    
+}
+.my-search span{
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 0.5rem;
+    color: #ffff;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.my-profile{
+width: 3.125rem;
+height: 3.125rem;
+border: #ffff;
+background: url(icons/peepoUnicorn.png);
+border-radius: 62px;
+}
+.logo{
+    font-family: 'Monofett', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.438rem;
+    line-height: 3rem;
+}
+.side-menu{
+    min-width: 15rem;
+    height: 100vh;
+    background-color: #323232;
+}
+
+.side-menu a{
+    color: #ffff;
+     font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+.side-menu a:hover{
+    background-color: #0D7377;
+}/*
+.bi-clipboard-data{
+    font-size: 2rem;
+}
+.bi-stickies{
+    font-size: 2rem;
+}
+.bi-people-fill{
+    font-size: 2rem;
+}*/
+.dropdown-menu{
+    padding: 0.7rem;
+    background-color: #323232;
+    color: #ffff;
+
+}
+.dropdown-menu a:hover{
+    background-color: #0D7377;
+    color: #ffff;
+    
+}
+.dropdown-menu a{
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    
+}
+.btndisclaimer {
+    position: fixed;
+    left: 2rem;
+    bottom: 2.5rem;
+  }
+  .btn-template{
+    
+    background-color: #14FFEC;
+    color: #101011;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    font-weight: 300;
+  }
+  .btn-template:hover{
+    border-color: #0D7377;
+  }
+  i{
+      padding-right: 0.5rem;
+  }

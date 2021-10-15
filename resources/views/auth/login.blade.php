@@ -1,4 +1,4 @@
-@extends('baseStructure')
+@extends('baseFramework')
 @section('title')
     EditedTitle
 @endsection
