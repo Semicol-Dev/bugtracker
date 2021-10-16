@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Models\User;
 class UserController extends Controller
 {
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -68,7 +68,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($id == auth()->user()->id || auth()->user()->isAdmin()){
+            $user = User::findOrFail($id);
+            if ($request->action == "password"){
+                return "password";
+            }elseif ($request->action == "avatar"){
+                $request->validate([
+                    'picture' => 'image|mimes:jpeg,png,jpg|max:2048'
+                ]);
+                $user->picture = "data:image/".$request->file('image')->extension().";base64," . base64_encode(file_get_contents($request->file('image')));
+            }
+            $user->save();
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
