@@ -2,7 +2,7 @@
     <li>Email {{auth()->user()->email}}</li>
     <li>Name {{auth()->user()->name}}</li>
 </ul>
-<form method="post" action="/user/{{auth()->user()->id}}">
+<form method="post" action="/user/{{auth()->user()->id}}/password">
     {{ method_field('PUT') }}
     <h1>Password change</h1>
     @error('passwd')
@@ -17,7 +17,7 @@
     <input type="submit" value="submit">
 </form>
 <h1>Update avatar</h1>
-<form method="post" enctype="multipart/form-data" action="/user/{{auth()->user()->id}}">
+<form method="post" enctype="multipart/form-data" action="/user/{{auth()->user()->id}}/avatar">
     {{ method_field('PUT') }}
     @csrf
     <input type="hidden" name="action" value="avatar">
