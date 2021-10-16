@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     /**
@@ -71,14 +73,27 @@ class UserController extends Controller
         if ($id == auth()->user()->id || auth()->user()->isAdmin()){
             $user = User::findOrFail($id);
             if ($request->action == "password"){
-                return "password";
+
+                $request->validate([
+                    'pass1' => 'required',
+                    'pass2' => 'required',
+                ]);
+                if ($request->pass2 == $request->pass1){
+                    $user->password = Hash::make($request->pass1);
+                } else {
+                    return redirect()->back()->withErrors(['passwd' => 'Passwords are not same']);
+                    
+                }
+
             }elseif ($request->action == "avatar"){
                 $request->validate([
+                    'image' => 'required',
                     'image' => 'image|mimes:jpeg,png,jpg|max:2048'
                 ]);
                 $user->picture = "data:image/".$request->file('image')->extension().";base64," . base64_encode(file_get_contents($request->file('image')));
             }
             $user->save();
+            return redirect()->back();
         } else {
             return redirect('/');
         }
