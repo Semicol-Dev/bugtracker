@@ -74,7 +74,7 @@ class UserController extends Controller
                 return "password";
             }elseif ($request->action == "avatar"){
                 $request->validate([
-                    'picture' => 'image|mimes:jpeg,png,jpg|max:2048'
+                    'image' => 'image|mimes:jpeg,png,jpg|max:2048'
                 ]);
                 $user->picture = "data:image/".$request->file('image')->extension().";base64," . base64_encode(file_get_contents($request->file('image')));
             }
