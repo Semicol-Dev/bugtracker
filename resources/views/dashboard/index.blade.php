@@ -1,4 +1,4 @@
-@extends('baseLayout')
+@extends('baseSideNav')
 @section('title')
     index
 @endsection
