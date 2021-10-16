@@ -6,6 +6,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\UserController;
 
 use GuzzleHttp\Middleware;
 
@@ -35,7 +36,7 @@ Route::get('file/{id}', ['App\Http\Controllers\FileController','get'])->middlewa
 Route::get('file/{id}/delete', ['App\Http\Controllers\FileController','destroy'])->middleware('auth');
 
 Route::get('issue/note/delete/{id}', ['App\Http\Controllers\IssueController','note_delete'])->middleware('auth');
-
+Route::resource('user', UserController::class)->middleware('auth');
 Route::resource('project', ProjectController::class)->middleware('auth');
 Route::resource('team', TeamController::class)->middleware('auth');
 Route::resource('issue', IssueController::class)->middleware('auth');
