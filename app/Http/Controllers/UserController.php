@@ -68,35 +68,40 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update_password(Request $request, $id){
         if ($id == auth()->user()->id || auth()->user()->isAdmin()){
             $user = User::findOrFail($id);
-            if ($request->action == "password"){
-
-                $request->validate([
-                    'pass1' => 'required',
-                    'pass2' => 'required',
-                ]);
-                if ($request->pass2 == $request->pass1){
-                    $user->password = Hash::make($request->pass1);
-                } else {
-                    return redirect()->back()->withErrors(['passwd' => 'Passwords are not same']);
-                    
-                }
-
-            }elseif ($request->action == "avatar"){
-                $request->validate([
-                    'image' => 'required',
-                    'image' => 'image|mimes:jpeg,png,jpg|max:2048'
-                ]);
-                $user->picture = "data:image/".$request->file('image')->extension().";base64," . base64_encode(file_get_contents($request->file('image')));
+            $request->validate([
+                'pass1' => 'required',
+                'pass2' => 'required',
+            ]);
+            if ($request->pass2 == $request->pass1){
+                $user->password = Hash::make($request->pass1);
+                $user->save();
+                return redirect()->back();
+            } else {
+                return redirect()->back()->withErrors(['passwd' => 'Passwords are not same']);   
             }
+        } else {
+            return abort(403);
+        }
+    }
+    public function update_avatar(Request $request, $id){
+        if ($id == auth()->user()->id || auth()->user()->isAdmin()){
+            $user = User::findOrFail($id);
+            $request->validate([
+                'image' => 'required',
+                'image' => 'image|mimes:jpeg,png,jpg|max:2048'
+            ]);
+            $user->picture = "data:image/".$request->file('image')->extension().";base64," . base64_encode(file_get_contents($request->file('image')));
             $user->save();
             return redirect()->back();
         } else {
-            return redirect('/');
-        }
+            return abort(403);
+        }   
+    }
+    public function update(Request $request, $id)
+    {
     }
 
     /**
