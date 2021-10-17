@@ -93,24 +93,30 @@ border-radius: 62px;
     line-height: 1rem;
     
 }
-.btndisclaimer {
+.btn-disclaimer {
     position: fixed;
     left: 2rem;
     bottom: 2.5rem;
   }
-  .btn-template{
-    
-    background-color: #14FFEC;
-    color: #101011;
+  .btn-bug-template{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-size: 1.3rem;
     line-height: 1.3rem;
     font-weight: 300;
   }
-  .btn-template:hover{
-    border-color: #0D7377;
-  }
+  /*
+  .btn-effect:hover{
+    transform: scale(0.99);
+  }*/
   i{
       padding-right: 0.5rem;
   }
+  .btn-square-template{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    width: 15%;
+   
+    position: relative;
+  }
+  

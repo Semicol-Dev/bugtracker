@@ -15,14 +15,15 @@
            
           </div>
         </div>
-        <button class="btn btn-template btndisclaimer" type="submit"><i class="bi bi-bug-fill"></i>Report Bug</button>
+        <button class="btn btn-info btn-bug-template btn-disclaimer" style="color: #121212" type="submit"><i class="bi bi-bug-fill"></i>Report Bug</button>
       </div> 
       <div class="col" style="background-color: #101010">
   
-        
+        @yield('core')
+
       </div>
     </div>
   </div>
 
-@yield('core')
+
 @endsection
