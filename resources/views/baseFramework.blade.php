@@ -24,5 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="js/issueList.js"></script>
   </body>
 </html>
