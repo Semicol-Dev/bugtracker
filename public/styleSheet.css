@@ -1,17 +1,19 @@
-body{
+body {
     overflow: hidden;
 }
-::placeholder { 
+
+::placeholder {
     color: #ffff;
-    opacity: 1; 
-  }
-.my-search{
+    opacity: 1;
+}
+
+.my-search {
     border-radius: 10px;
     display: flex;
     background-color: rgba(255, 255, 255, 0.116);
-   
 }
-.my-search input{
+
+.my-search input {
     border-radius: 0px 10px 10px 0px;
     padding-left: 0.5rem;
     display: flex;
@@ -25,46 +27,52 @@ body{
     font-size: 1.375rem;
     line-height: 1.875rem;
     background-color: rgba(255, 255, 255, 0.116);
-    
 }
-.my-search span{
+
+.my-search span {
     border-radius: 10px 0px 0px 10px;
     padding-left: 0.5rem;
     color: #ffff;
     background-color: rgba(255, 255, 255, 0.116);
 }
 
-.my-profile{
-width: 3.125rem;
-height: 3.125rem;
-border: #ffff;
-background: url(icons/peepoUnicorn.png);
-border-radius: 62px;
+.my-profile {
+    width: 3.125rem;
+    height: 3.125rem;
+    border: #ffff;
+    background: url(icons/peepoUnicorn.png);
+    border-radius: 62px;
 }
-.logo{
+
+.logo {
     font-family: 'Monofett', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 2.438rem;
     line-height: 3rem;
 }
-.side-menu{
+
+.side-menu {
     min-width: 15rem;
     height: 100vh;
     background-color: #323232;
 }
 
-.side-menu a{
+.side-menu a {
     color: #ffff;
-     font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 1.8rem;
     line-height: 2rem;
 }
-.side-menu a:hover{
+
+.side-menu a:hover {
     background-color: #0D7377;
-}/*
+}
+
+
+/*
 .bi-clipboard-data{
     font-size: 2rem;
 }
@@ -74,49 +82,65 @@ border-radius: 62px;
 .bi-people-fill{
     font-size: 2rem;
 }*/
-.dropdown-menu{
+
+.dropdown-menu {
     padding: 0.7rem;
     background-color: #323232;
     color: #ffff;
-
 }
-.dropdown-menu a:hover{
+
+.dropdown-menu a:hover {
     background-color: #0D7377;
     color: #ffff;
-    
 }
-.dropdown-menu a{
+
+.dropdown-menu a {
     color: #ffff;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-size: 1rem;
     line-height: 1rem;
-    
 }
+
 .btn-disclaimer {
     position: fixed;
     left: 2rem;
     bottom: 2.5rem;
-  }
-  .btn-bug-template{
+}
+
+.btn-bug-template {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-size: 1.3rem;
     line-height: 1.3rem;
     font-weight: 300;
-  }
-  /*
+}
+
+
+/*
   .btn-effect:hover{
     transform: scale(0.99);
   }*/
-  i{
-      padding-right: 0.5rem;
-  }
-  .btn-square-template{
+
+i {
+    padding-right: 0.5rem;
+}
+
+.btn-square-template {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     width: 15%;
-   
     position: relative;
-  }
-  
+}
+
+.issue-list {
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+
+.issue-list span {
+    font-weight: 200;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+}
