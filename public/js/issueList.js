@@ -2,6 +2,7 @@ $("#critical").hide();
 $("#all").show();
 $("#casual").hide();
 $("#feature").hide();
+$("#all").height = window.screen.height;
 
 function hideAll() {
     $("#critical").hide();

@@ -1,6 +1,4 @@
-body {
-    overflow: hidden;
-}
+body {}
 
 ::placeholder {
     color: #ffff;
@@ -54,8 +52,8 @@ body {
 
 .side-menu {
     min-width: 15rem;
-    height: 100vh;
     background-color: #323232;
+    height: calc(100vh - 74px);
 }
 
 .side-menu a {
@@ -133,6 +131,11 @@ i {
     position: relative;
 }
 
+.issue-list-container {
+    overflow: auto;
+    height: calc(100vh - 231px);
+}
+
 .issue-list {
     color: #ffff;
     font-family: 'Poppins', sans-serif;
@@ -144,3 +147,6 @@ i {
     font-size: 1.3rem;
     line-height: 1.3rem;
 }
+
+
+/* width */
