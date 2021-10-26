@@ -15,8 +15,8 @@
            
           </div>
         </div>
-        <button class="btn btn-info btn-bug-template btn-disclaimer" style="color: #121212" type="submit"><i class="bi bi-bug-fill"></i>Report Bug</button>
       </div> 
+      <a class="btn btn-info btn-bug-template btn-disclaimer" style="color: #121212" type="submit" href="/issue/create" ><i class="bi bi-bug-fill"></i>Report Bug</a>
       <div class="col" style="background-color: #101010;
       ">
   
