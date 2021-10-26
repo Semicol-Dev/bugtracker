@@ -8,8 +8,8 @@
           <div class="col-12">
             <br>
             <nav class="nav flex-column">
-              <a class="nav-link active" href="#"><i class="bi bi-stickies-fill"></i>Tickets</a>
-              <a class="nav-link" href="#"><i class="bi bi-file-bar-graph-fill"></i>Projects</a>
+              <a class="nav-link " href="#"><i class="bi bi-stickies-fill"></i>Tickets</a>
+              <a class="nav-link " href="#"><i class="bi bi-file-bar-graph-fill"></i>Projects</a>
               <a class="nav-link" href="/team"><i class="bi bi-people-fill"></i>Teams</a>
             </nav>
            

@@ -148,6 +148,24 @@ i {
     line-height: 1.3rem;
 }
 
+tbody tr:nth-child(odd) {
+    background-color: #323232;
+}
+
+.thead-fixed {
+    position: sticky;
+    top: 0;
+    background-color: #101010;
+}
+
+.def-link {
+    color: #ffff;
+}
+
+.def-link:hover {
+    color: #ffff;
+}
+
 
 /* width */
 
