@@ -166,6 +166,25 @@ tbody tr:nth-child(odd) {
     color: #ffff;
 }
 
+.sm-form-background {
+    background-color: #0D7377;
+    height: 100vh;
+}
+
+.sm-form-body {
+    background-color: #323232;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.sm-form-input {
+    width: 100%;
+    color: #ffff;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+}
+
 
 /* width */
 

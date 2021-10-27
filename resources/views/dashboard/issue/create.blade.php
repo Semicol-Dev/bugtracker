@@ -1,3 +1,6 @@
+@extends('baseTopNav')
+@section('contentUnder')
+
 <form action="/issue" id="issue_form" name="issue_form" method="post">
     @csrf
     Nazov: <input type="text" name="title" id=""><br>
@@ -17,3 +20,14 @@
     <textarea name="description" form="issue_form">Popis bugu</textarea>
     <input type="submit" value="Odoslať">
 </form>
+
+<form action="../../logout" method="post">
+    @csrf
+    <input type="submit" value="logout">
+</form>
+<!---
+<form id="logout" action="../../logout" method="post">
+    @csrf
+</form>
+
+@endsection
