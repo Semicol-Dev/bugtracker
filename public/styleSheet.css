@@ -172,17 +172,28 @@ tbody tr:nth-child(odd) {
 }
 
 .sm-form-body {
-    background-color: #323232;
+    background-color: #101010;
     padding: 1rem;
     border-radius: 1rem;
 }
 
 .sm-form-input {
+    background-color: #323232;
+    padding: 0.5rem;
     width: 100%;
     color: #ffff;
+    border: unset;
+    outline: unset;
     border-radius: 0.5rem;
-    border: none;
-    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #323232 inset !important;
+    -webkit-text-fill-color: #ffff !important;
+    transition: background-color 2000000s ease-in-out 0s;
 }
 
 

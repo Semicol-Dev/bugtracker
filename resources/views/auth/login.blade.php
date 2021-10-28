@@ -41,7 +41,7 @@
                             
                         </div>
                         <div class="col-10" >
-                            <input class="bg-secondary sm-form-input"  id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input class=" sm-form-input"  id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         </div>
                         
                     </div>
@@ -60,7 +60,7 @@
                             
                         </div>
                         <div class="col-10">
-                            <input class="bg-secondary sm-form-input"  id="password" type="password" name="password" required autocomplete="current-password">
+                            <input class="  sm-form-input"  id="password" type="password" name="password" required autocomplete="current-password">
                         </div>
                         
                     </div>
