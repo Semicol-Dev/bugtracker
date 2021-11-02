@@ -4,6 +4,8 @@ $("#casual").hide();
 $("#feature").hide();
 $("#solved").hide();
 
+
+
 function hideAll() {
     $("#critical").hide();
     $("#all").hide();

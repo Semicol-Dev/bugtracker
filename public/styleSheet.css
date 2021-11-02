@@ -172,13 +172,13 @@ tbody tr:nth-child(odd) {
 }
 
 .sm-form-body {
-    background-color: #101010;
+    background-color: #323232;
     padding: 1rem;
     border-radius: 1rem;
 }
 
 .sm-form-input {
-    background-color: #323232;
+    background-color: #6D6D6D;
     padding: 0.5rem;
     width: 100%;
     color: #ffff;
@@ -191,7 +191,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #323232 inset !important;
+    -webkit-box-shadow: 0 0 0 30px #6D6D6D inset !important;
     -webkit-text-fill-color: #ffff !important;
     transition: background-color 2000000s ease-in-out 0s;
 }

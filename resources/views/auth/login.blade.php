@@ -99,7 +99,7 @@
                     </div>
                     <br>
                     <div class="row d-flex justify-content-center">
-                        <button type="submit" class="btn btn-info btn-bug-template">
+                        <button type="submit" class="btn btn-info btn-bug-template" style="color: #101010">
                             {{ __('Login') }}
                         </button>
                     </div>
