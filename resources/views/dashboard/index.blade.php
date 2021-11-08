@@ -20,7 +20,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
             @if ($issue->type == 2)
@@ -28,7 +28,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
             @if ($issue->type == 3)
@@ -36,7 +36,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
         @endforeach
@@ -47,7 +47,7 @@
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span></h1>
                 <h4>{{$issue->description}}</h4>
                 <h6>Created: {{$issue->created_at}}</h6>
-                <hr style="background-color: #ffff">
+                <hr>
             </div>
         @endforeach
     </div>
@@ -57,7 +57,7 @@
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span></h1>
                 <h4>{{$issue->description}}</h4>
                 <h6>Created: {{$issue->created_at}}</h6>
-                <hr style="background-color: #ffff">
+                <hr>
             </div>
         @endforeach
     </div>
@@ -67,7 +67,7 @@
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span></h1>
                 <h4>{{$issue->description}}</h4>
                 <h6>Created: {{$issue->created_at}}</h6>
-                <hr style="background-color: #ffff">
+                <hr>
             </div>
         @endforeach
     </div>
@@ -78,7 +78,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
             @if ($issue->type == 2)
@@ -86,7 +86,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
             @if ($issue->type == 3)
@@ -94,7 +94,7 @@
                     <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
                     <h4>{{$issue->description}}</h4>
                     <h6>Created: {{$issue->created_at}}</h6>
-                    <hr style="background-color: #ffff">
+                    <hr>
                 </div>
             @endif
         @endforeach

@@ -148,7 +148,7 @@ i {
     line-height: 1.3rem;
 }
 
-tbody tr:nth-child(odd) {
+.big-table tr:nth-child(odd) {
     background-color: #323232;
 }
 
@@ -194,6 +194,24 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #6D6D6D inset !important;
     -webkit-text-fill-color: #ffff !important;
     transition: background-color 2000000s ease-in-out 0s;
+}
+
+.bug-show-info-td {
+    padding-right: 1rem;
+    padding-bottom: 0.7rem;
+}
+
+.bug-show-info-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #0D7377;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    width: 90%;
+}
+
+hr {
+    background-color: #fff;
 }
 
 
