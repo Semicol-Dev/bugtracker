@@ -170,7 +170,7 @@ $loopCount = 0
             @if (auth()->user()->isDev() ||
         auth()->user()->isAdmin())
                 
-                <div class="pb-3">
+                <div class="pb-3 bug-show-info-description" style="background-color: #323232">
                     <h5>
                         <b>{{ $comment->user->name }}</b>
                         <small>
@@ -182,12 +182,12 @@ $loopCount = 0
                     
                     {{ $comment->text }}
                 </div>
-               
+               <br>
                 
             @endif
         @else
            
-        <div class="pb-3">
+        <div class="pb-3 bug-show-info-description" style="background-color: #323232">
             <h5>
                 <b>{{ $comment->user->name }}</b>
                 <small>
@@ -198,6 +198,7 @@ $loopCount = 0
             
             {{ $comment->text }}
         </div>
+        <br>
         @endif
     @endforeach
    </h3>
