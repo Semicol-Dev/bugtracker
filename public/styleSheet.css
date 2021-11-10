@@ -52,6 +52,7 @@ body {}
 
 .side-menu {
     min-width: 15rem;
+    max-width: 15rem;
     background-color: #323232;
     height: calc(100vh - 74px);
 }
@@ -128,6 +129,7 @@ i {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     width: 15%;
+    max-width: 15rem;
     position: relative;
 }
 

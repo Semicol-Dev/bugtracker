@@ -167,8 +167,8 @@ $loopCount = 0
                 <h5>
                     <b>{{ $comment->user->name }}</b>
                     <small>
-                    {{ $comment->created_at }}
-                    <a class="badge badge-danger" href="/issue/note/delete/{{ $comment->id }}">Delete</a>
+                        {{ $comment->created_at }}
+                        <a class="badge badge-danger" href="/issue/note/delete/{{ $comment->id }}">Delete</a>
                     </small>
                 </h5>
                 {{ $comment->text }}
@@ -176,7 +176,9 @@ $loopCount = 0
             <br>
         @endif
     @endforeach
+    
 </div>
+
 @endsection
 
 
