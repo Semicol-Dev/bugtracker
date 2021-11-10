@@ -45,7 +45,7 @@ $loopCount = 0
         <form id="delete" method="post" action="/issue/{{ $issue->id }}">
             @method('delete')
             @csrf
-            <button onclick="document.getElementById('delete').submit();" class="btn btn-danger btn-bug-template" style="color: #101010">
+            <button onclick="document.getElementById('delete').submit();" class="btn btn-danger btn-bug-template" >
                 <i class="bi bi-trash-fill"></i>Delete
             </button>
         </form>
@@ -75,17 +75,17 @@ $loopCount = 0
 <div class="issue-list-container issue-list"  style="height: calc(100vh - 265px)">
     <table>
         <tr>
-            <td class="bug-show-info-td"><b>Vytvoril:</b> {{ $issue->created_by->name }}</td>
+            <td class="bug-show-info-td"><b>Reported:</b> {{ $issue->created_by->name }}</td>
             <td class="bug-show-info-td">
-               <b> Rieši:</b>
+               <b> Solver:</b>
                 @if ($issue->assigned_user_id == 0)
-                    Nepridelené
+                    Not Assigned
                 @else
                     {{ $issue->assigned->name }}
                 @endif
             </td>
             <td class="bug-show-info-td">
-                <b>Projekt:</b> {{ $issue->project->name }}
+                <b>Project:</b> {{ $issue->project->name }}
             </td>
             
         </tr>
@@ -93,14 +93,14 @@ $loopCount = 0
     <table>
         <tr>
             <td class="bug-show-info-td">
-               <b> Vytvorené:</b> {{ $issue->created_at }}
+               <b> Reported:</b> {{ $issue->created_at }}
             </td>
             <td class="bug-show-info-td">
-               <b> Posledná aktualizácia:</b> {{ $issue->updated_at }}
+               <b> Last Update:</b> {{ $issue->updated_at }}
             </td>
         </tr>
     </table>
-    <h3>Popis problému</h3>
+    <h3>Bug Description</h3>
     <div class="bug-show-info-description">{{ $issue->description }}</div>
     
     
@@ -109,19 +109,19 @@ $loopCount = 0
     <hr>
     
     <div>
-        <h4>Komentáre</h4>
+        <h4>Add Comment</h4>
         <form class="row d-flex justify-content-between"  style="width: 100%;" method="post" name="comments_form" id="comments_form" action="/issue/{{ $issue->id }}/note">
             @csrf
            <div class="col-4">
                 <textarea  class="sm-form-input" name="comment" form="comments_form" placeholder="Komentár"></textarea><br>
                 @if (auth()->user()->isAdmin() ||auth()->user()->isDev())
-                    Interny komentar: <input type="checkbox" name="hidden_comment" id=""><br />        
+                    Intern Comment: <input type="checkbox" name="hidden_comment" id=""><br />        
                 @endif
            </div>
         
            <div class="col-3 d-flex justify-content-end pr-1" > 
                 <button type="submit" class="btn btn-info btn-bug-template align-self-center " style="color: #101010">
-                    <i class="bi bi-megaphone-fill"></i>Post
+                    <i class="bi bi-chat-right-text-fill"></i>Post
                 </button>
             </div>
         </form>
@@ -129,67 +129,75 @@ $loopCount = 0
    
     
     <hr>
-    <h4>Nahrane subory</h4>
+    <h4>Uploaded Files</h4>
     @if (auth()->user()->isAdmin() ||
         auth()->user()->id == $issue->created_user_id)
-        <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <form class="row d-flex justify-content-between"  style="width: 100%;" action="/file/upload" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="file" name="file" id="">
-            <input type="hidden" name="issue_id" value="{{ $issue->id }}">
-            <input type="submit" value="Nahrat subor">
+            <div class="col-4">
+               
+                <label class="btn btn-info btn-bug-template" style="color: #101010">
+                    <input type="file" name="file" id="">
+                    <i class="bi bi-file-earmark-fill"></i>Choose File
+                </label>
+                <input type="hidden" name="issue_id" value="{{ $issue->id }}">
+            </div>
+            <div class="col-3 d-flex justify-content-end pr-1" > 
+                <button type="submit" class="btn btn-info btn-bug-template align-self-start " style="color: #101010">
+                    <i class="bi bi-file-earmark-arrow-up-fill"></i>Upload
+                </button>
+            </div>
         </form>
     @endif
     
-    <ul>
+    <ul >
         @foreach ($issue->files as $file)
-            <li><a href="/file/{{ $file->id }}">{{ $file->text }}</a> - {{ $file->user->name }} -
+            <li><b><a class="def-link link-info" href="/file/{{ $file->id }}">{{ $file->text }}</a></b> - {{ $file->user->name }} -
                 {{ $file->created_at }}
                 @if (auth()->user()->isAdmin() ||
         auth()->user()->id == $file->user_id)
-                    - <a href="/file/{{ $file->id }}/delete">Zmazat</a>
+                    - <a class="badge badge-danger" href="/file/{{ $file->id }}/delete"> Delete</a> 
+                    
                 @endif
     
             </li>
         @endforeach
     </ul>
     <hr>
-    
+    <h4>Comments</h4>
     @foreach ($issue->comments as $comment)
         @if ($comment->internal)
             @if (auth()->user()->isDev() ||
         auth()->user()->isAdmin())
-                <hr>
-                <table border=1>
-                    <tr>
-                        <td>{{ $comment->user->name }}</td>
-                        <td>{{ $comment->created_at }}</td>
-                        <td>Interny komentar</td>
-                        
-                        <td><a href="/issue/note/delete/{{ $comment->id }}">Zmazat</a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            {{ $comment->text }}
-                        </td>
-                    </tr>
-                </table>
+                
+                <div class="pb-3">
+                    <h5>
+                        <b>{{ $comment->user->name }}</b>
+                        <small>
+                            -Intern Comment-
+                            {{ $comment->created_at }}
+                            <a class="badge badge-danger" href="/issue/note/delete/{{ $comment->id }}">Delete</a>
+                        </small>
+                    </h5>
+                    
+                    {{ $comment->text }}
+                </div>
+               
+                
             @endif
         @else
-            <hr>
-            <table border=1>
-                <tr>
-                    <td>{{ $comment->user->name }}</td>
-                    <td>{{ $comment->created_at }}</td>
-                    @if (auth()->user()->id == $comment->user_id || auth()->user()->isAdmin())
-                        <td><a href="/issue/note/delete/{{ $comment->id }}">Zmazat</a></td>
-                    @endif
-                </tr>
-                <tr>
-                    <td>
-                        {{ $comment->text }}
-                    </td>
-                </tr>
-            </table>
+           
+        <div class="pb-3">
+            <h5>
+                <b>{{ $comment->user->name }}</b>
+                <small>
+                    {{ $comment->created_at }}
+                    <a class="badge badge-danger" href="/issue/note/delete/{{ $comment->id }}">Delete</a>
+                </small>
+            </h5>
+            
+            {{ $comment->text }}
+        </div>
         @endif
     @endforeach
    </h3>
