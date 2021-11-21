@@ -13,15 +13,20 @@
         </form>
     </div>
     <div class="btn-group dropleft">
-        <button class=" my-profile mbtn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button 
+        style="background-image: url({{auth()->user()->picture}});"
+        class=" my-profile mbtn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another </a>
-          <a class="dropdown-item" href="#">Something </a>
+          <a class="dropdown-item" href="/user">Settings</a>
+          <a class="dropdown-item" onclick='$("#logout_form").submit();' href="#">Logout</a>
         </div>
       </div>
 </nav>
+<form id="logout_form" action="../../logout" method="post">
+  @csrf
+</form>
 @yield('contentUnder')
 @endsection
