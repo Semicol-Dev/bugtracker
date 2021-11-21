@@ -8,7 +8,7 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="styleSheet.css" rel="stylesheet">
+    <link href="../../styleSheet.css" rel="stylesheet">
   </head>
   <body>
     @yield('content')
@@ -24,6 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="js/issueList.js"></script>
+    <script src="../../js/issueList.js"></script>
   </body>
 </html>

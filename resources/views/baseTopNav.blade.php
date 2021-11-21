@@ -1,7 +1,7 @@
 @extends('baseFramework')
 @section('content')
 <nav class="navbar navbar-dark " style="background-color: #0D7377" >
-    <div class="navbar-brand logo" href="#">BUGTRAC.IO</div>
+    <a class="navbar-brand logo" href="/home">BUGTRAC.IO</a>
      <div class="my-search">
         <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

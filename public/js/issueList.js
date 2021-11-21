@@ -2,6 +2,9 @@ $("#critical").hide();
 $("#all").show();
 $("#casual").hide();
 $("#feature").hide();
+$("#solved").hide();
+
+
 
 function hideAll() {
     $("#critical").hide();

@@ -1,6 +1,4 @@
-body {
-    overflow: hidden;
-}
+body {}
 
 ::placeholder {
     color: #ffff;
@@ -54,8 +52,9 @@ body {
 
 .side-menu {
     min-width: 15rem;
-    height: 100vh;
+    max-width: 15rem;
     background-color: #323232;
+    height: calc(100vh - 74px);
 }
 
 .side-menu a {
@@ -130,7 +129,13 @@ i {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     width: 15%;
+    max-width: 15rem;
     position: relative;
+}
+
+.issue-list-container {
+    overflow: auto;
+    height: calc(100vh - 231px);
 }
 
 .issue-list {
@@ -143,4 +148,105 @@ i {
     font-weight: 200;
     font-size: 1.3rem;
     line-height: 1.3rem;
+}
+
+.big-table tr:nth-child(odd) {
+    background-color: #323232;
+}
+
+.thead-fixed {
+    position: sticky;
+    top: 0;
+    background-color: #101010;
+}
+
+.def-link {
+    color: #ffff;
+}
+
+.def-link:hover {
+    color: #ffff;
+}
+
+.sm-form-background {
+    background-color: #0D7377;
+    height: 100vh;
+}
+
+.sm-form-body {
+    background-color: #323232;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.sm-form-input {
+    background-color: #6D6D6D;
+    padding: 0.5rem;
+    width: 100%;
+    color: #ffff;
+    border: unset;
+    outline: unset;
+    border-radius: 0.5rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #6D6D6D inset !important;
+    -webkit-text-fill-color: #ffff !important;
+    transition: background-color 2000000s ease-in-out 0s;
+}
+
+.bug-show-info-td {
+    padding-right: 1rem;
+    padding-bottom: 0.7rem;
+}
+
+.bug-show-info-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #0D7377;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    width: 99%;
+}
+
+hr {
+    background-color: #fff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #6D6D6D;
+    ;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #C4C4C4;
 }
