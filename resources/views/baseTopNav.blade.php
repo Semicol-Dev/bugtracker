@@ -13,7 +13,9 @@
         </form>
     </div>
     <div class="btn-group dropleft">
-        <button class=" my-profile mbtn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button 
+        style="background-image: url({{auth()->user()->picture}});"
+        class=" my-profile mbtn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
