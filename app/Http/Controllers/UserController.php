@@ -18,6 +18,15 @@ class UserController extends Controller
         return view('dashboard.user.index');
     }
 
+    public function index_admin(){
+        if (auth()->user()->isAdmin()){
+            $users = User::All();
+            return view('dashboard.admin.index')->with('users',$users);
+        } else {
+            abort(404);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +34,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        if (auth()->user()->isAdmin()){
+            return view('dashboard.admin.create');
+        } else {
+            abort(404);
+        }
     }
 
     /**
@@ -36,7 +49,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if (auth()->user()->isAdmin()){
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+            $user->role_id = 1;
+            $user->picture = 'none';
+            $user->save();
+            return redirect('/user/admin');
+        } else {
+            abort(404);
+        }
     }
 
     /**
@@ -112,6 +136,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->user()->isAdmin()){
+            $user = User::findOrFail($id);
+            $user->delete();
+            return redirect('/user/admin');
+        } else {
+            abort(404);
+        }
     }
 }
