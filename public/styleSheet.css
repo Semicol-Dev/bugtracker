@@ -38,7 +38,8 @@ body {}
     width: 3.125rem;
     height: 3.125rem;
     border: #ffff;
-    background: url(icons/peepoUnicorn.png);
+    background-size: cover;
+    background-size: 100% 100%;
     border-radius: 62px;
 }
 
