@@ -18,6 +18,7 @@ class AdminUser extends Seeder
             'email' => 'administrator@no-reply',
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
             'role_id' => '3',
+            'picture' => 'none',
         ]);
     }
 }
