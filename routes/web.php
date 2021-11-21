@@ -36,6 +36,9 @@ Route::post('file/upload', ['App\Http\Controllers\FileController','store'])->mid
 Route::get('file/{id}', ['App\Http\Controllers\FileController','get'])->middleware('auth');
 Route::get('file/{id}/delete', ['App\Http\Controllers\FileController','destroy'])->middleware('auth');
 
+Route::get('user/admin', ['App\Http\Controllers\UserController','index_admin'])->middleware('auth')->middleware('isAdmin');
+Route::get('user/{id}/destroy', ['App\Http\Controllers\UserController','destroy'])->middleware('auth')->middleware('isAdmin');
+
 Route::put('user/{id}/password', ['App\Http\Controllers\UserController','update_password'])->middleware('auth');
 Route::put('user/{id}/avatar', ['App\Http\Controllers\UserController','update_avatar'])->middleware('auth');
 
