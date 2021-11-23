@@ -9,7 +9,7 @@
               </svg>
         </span>
         <form action="issue">
-            <input type="text" name="search" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            <input type="text" name="search" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" autocomplete="off">
         </form>
     </div>
     <div class="btn-group dropleft">
