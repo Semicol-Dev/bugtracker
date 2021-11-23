@@ -1,13 +1,13 @@
-@extends('baseTopNav')
-@section('contentUnder')
-<div class="container-fluid sm-form-background" style="background-color: #101010">
+@extends('baseSideNav')
+@section('core')
+<div class="container-fluid ">
     <br>
     <br>
-    <div class="row">
-        <div class="col-4">
+    <div class="row d-flex justify-content-between">
+        <div class="col-3">
             
         </div>
-        <div class="col-4 issue-list sm-form-body" >
+        <div class="col issue-list sm-form-body " >
             <div class="row d-flex justify-content-center">
                 
                  <h1>Report Bug</h1>
@@ -129,11 +129,9 @@
             
 
         </div>
-        
+        <div class="col-3">
+            
+        </div>
     </div>
-    <form action="../../logout" method="post">
-        @csrf
-        <input type="submit" value="logout">
-    </form>
 </div>
 @endsection

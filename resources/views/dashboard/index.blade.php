@@ -13,7 +13,7 @@
 </nav>
 <br>
 <div class="issue-list-container">
-    <div id="all">
+    <div id="all" style="display: none">
         @foreach (auth()->user()->my_issues() as $issue)
             @if ($issue->type == 1)
                 <div class="issue-list">
@@ -41,7 +41,7 @@
             @endif
         @endforeach
     </div>
-    <div id="critical">
+    <div id="critical" style="display: none">
         @foreach (auth()->user()->type_issue(1) as $issue)
             <div class="issue-list">
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span></h1>
@@ -51,7 +51,7 @@
             </div>
         @endforeach
     </div>
-    <div id="casual">
+    <div id="casual" style="display: none">
         @foreach (auth()->user()->type_issue(2) as $issue)
             <div class="issue-list">
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span></h1>
@@ -61,7 +61,7 @@
             </div>
         @endforeach
     </div>
-    <div id="feature" >
+    <div id="feature" style="display: none">
         @foreach (auth()->user()->type_issue(3) as $issue)
             <div class="issue-list">
                 <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span></h1>
@@ -71,7 +71,7 @@
             </div>
         @endforeach
     </div>
-    <div id="solved">
+    <div id="solved" style="display: none">
         @foreach (auth()->user()->solved_issues(false) as $issue)
             @if ($issue->type == 1)
                 <div class="issue-list">

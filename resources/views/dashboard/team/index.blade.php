@@ -18,7 +18,7 @@ $loopCount = 0
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Memembers</th>
+                    <th scope="col">Members</th>
                 </tr>
             </thead>
             <tbody class="big-table">
