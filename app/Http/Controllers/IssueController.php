@@ -17,12 +17,16 @@ class IssueController extends Controller
      */
     public function index(Request $request)
     {
+        
         if ($request->search == ""){
             // no get parameter
+            
             if (auth()->user()->isAdmin()) {
                 $issues = Issue::all();
+                
             } else {
                 $issues = auth()->user()->all_issues();
+                
             }
             return view('dashboard.issue.index')->with('issues', $issues);
         } else {
