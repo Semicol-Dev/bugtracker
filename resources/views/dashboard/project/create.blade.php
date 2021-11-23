@@ -73,7 +73,7 @@
                     </div>
                     <div class="col d-flex justify-content-center">
                         <button @if ($teams->count() == 0 ) disabled @endif type="submit" class="btn btn-info btn-bug-template" style="color: #101010">
-                            <i class="bi bi-plus-circle-fill""></i>Create
+                            <i class="bi bi-plus-circle-fill"></i>Create
                         </button>
                     </div>
                     <div class="col-1">
