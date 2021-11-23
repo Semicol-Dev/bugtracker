@@ -34,86 +34,30 @@
 <br>
 <div class="issue-list-container issue-list"  style="height: calc(100vh - 265px)">
     <div>
-        @foreach (auth()->user()->my_issues() as $issue)
-            @if ($issue->type == 1)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
+        @foreach ($project->issues as $issue)
+        <div class="issue-list">
+            <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> 
+            @switch($issue->type)
+                @case(1)
+                <span class="badge  badge-pill badge-danger">Critical</span>
+                    @break
+                @case(2)
+                <span class="badge  badge-pill badge-warning">Casual</span>
+                    @break
+                @case(3)
+                <span class="badge  badge-pill badge-secondary">Feature</span>
+                    @break
+            @endswitch
+            @if ($issue->status == 1)
+                <span class="badge  badge-pill badge-success">Solved</span>
             @endif
-            @if ($issue->type == 2)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
-            @endif
-            @if ($issue->type == 3)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
-            @endif
+        </h1>
+        <h4>{{$issue->description}}</h4>
+        <h6>Created: {{$issue->created_at}}</h6>
+        <hr>
+        </div>
         @endforeach
     </div>
-    <div>
-        @foreach (auth()->user()->solved_issues(false) as $issue)
-            @if ($issue->type == 1)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-danger">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
-            @endif
-            @if ($issue->type == 2)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-warning">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
-            @endif
-            @if ($issue->type == 3)
-                <div class="issue-list">
-                    <h1><a class="def-link link-info" href="/issue/{{$issue->id}}">{{$issue->title}}</a> <span class="badge  badge-pill badge-secondary">{{$issue->project->name}}</span><span class="badge  badge-pill badge-success">Solved</span></h1>
-                    <h4>{{$issue->description}}</h4>
-                    <h6>Created: {{$issue->created_at}}</h6>
-                    <hr>
-                </div>
-            @endif
-        @endforeach
-    </div>
-    <h1>{{$project->name}}</h1>
-<h2>Team: {{$project->team->name}}</h2>
-
-<h2>Bug reporty projektu</h2>
-<table border=1>
-    <tr>
-        <td>
-            <strong>Title</strong>
-        </td>
-    </tr>
-    @foreach ($project->issues as $issue)
-        <td>
-            <a href="/issue/{{$issue->id}}">{{$issue->title}}</a>
-        </td>
-    @endforeach
-</table>
-
-@if (auth()->user()->isAdmin())
-    <a href="/project/{{$project->id}}/edit">Editovat</a>
-    <form id="delete" method="post" action="/project/{{$project->id}}">
-        @method('delete')
-        @csrf
-        <a href="#" onclick="document.getElementById('delete').submit();">Zmazat</a>
-    </form>
-@endif
 </div>
 
 @endsection
