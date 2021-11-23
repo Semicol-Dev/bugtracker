@@ -178,6 +178,7 @@ i {
     background-color: #323232;
     padding: 1rem;
     border-radius: 1rem;
+    max-width: 37rem;
 }
 
 .sm-form-input {
