@@ -141,6 +141,7 @@ class TeamController extends Controller
             
             $team = Team::findOrFail($id);
             return $team->complete_del();
+            // redirect to team page
             return redirect('/team');
         }
     }

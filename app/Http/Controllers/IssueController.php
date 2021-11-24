@@ -15,14 +15,27 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if (auth()->user()->isAdmin()) {
-            $issues = Issue::all();
+        
+        if ($request->search == ""){
+            // no get parameter
+            
+            if (auth()->user()->isAdmin()) {
+                $issues = Issue::all();
+                
+            } else {
+                $issues = auth()->user()->all_issues();
+                
+            }
+            return view('dashboard.issue.index')->with('issues', $issues);
         } else {
-            $issues = auth()->user()->all_issues();
+            // search request is provided
+            $search = $request->search;
+            $issues = Issue::query()->where('title', 'LIKE', "%{$search}%")->orWhere('description', 'LIKE', "%{$search}%")->get();
+            return view('dashboard.issue.index')->with('issues',$issues);
+    
         }
-        return view('dashboard.issue.index')->with('issues', $issues);
     }
 
     /**
@@ -130,6 +143,20 @@ class IssueController extends Controller
             abort(404);
         }
     }
+
+    function close($id){
+
+        // change id for assigned ticket
+        $issue = Issue::findOrFail($id);
+        if (auth()->user()->isAdmin() || auth()->user()->isDev()){
+            if ($issue->assigned_user_id == auth()->user()->id || auth()->user()->isAdmin()){
+                $issue->status = 1;
+                $issue->save();
+                return redirect("/issue/$id");
+            }
+        }
+        return abort(404);
+    }
     public function note($id, Request $request)
     {
         $comment = new Comment;
@@ -156,5 +183,8 @@ class IssueController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    public function search(Request $request){
     }
 }

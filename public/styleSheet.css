@@ -1,0 +1,256 @@
+::placeholder {
+    color: #ffff;
+    opacity: 1;
+}
+
+.my-search {
+    border-radius: 10px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.my-search input {
+    border-radius: 0px 10px 10px 0px;
+    padding-left: 0.5rem;
+    display: flex;
+    border: unset;
+    resize: none;
+    outline: none;
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.my-search span {
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 0.5rem;
+    color: #ffff;
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.my-profile {
+    width: 3.125rem;
+    height: 3.125rem;
+    border: #ffff;
+    background-size: cover;
+    background-size: 100% 100%;
+    border-radius: 62px;
+}
+
+.logo {
+    font-family: 'Monofett', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.438rem;
+    line-height: 3rem;
+}
+
+.side-menu {
+    min-width: 15rem;
+    max-width: 15rem;
+    background-color: #323232;
+    height: calc(100vh - 74px);
+}
+
+.side-menu a {
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+
+.side-menu a:hover {
+    background-color: #0D7377;
+}
+
+
+/*
+.bi-clipboard-data{
+    font-size: 2rem;
+}
+.bi-stickies{
+    font-size: 2rem;
+}
+.bi-people-fill{
+    font-size: 2rem;
+}*/
+
+.dropdown-menu {
+    padding: 0.7rem;
+    background-color: #323232;
+    color: #ffff;
+}
+
+.dropdown-menu a:hover {
+    background-color: #0D7377;
+    color: #ffff;
+}
+
+.dropdown-menu a {
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.btn-disclaimer {
+    position: fixed;
+    left: 2rem;
+    bottom: 2.5rem;
+}
+
+.btn-bug-template {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    font-weight: 300;
+}
+
+
+/*
+  .btn-effect:hover{
+    transform: scale(0.99);
+  }*/
+
+i {
+    padding-right: 0.5rem;
+}
+
+.btn-square-template {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    width: 15%;
+    max-width: 15rem;
+    position: relative;
+}
+
+.issue-list-container {
+    overflow: auto;
+    height: calc(100vh - 231px);
+}
+
+.issue-list {
+    color: #ffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+
+.issue-list span {
+    font-weight: 200;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+}
+
+.big-table tr:nth-child(odd) {
+    background-color: #323232;
+}
+
+.thead-fixed {
+    position: sticky;
+    top: 0;
+    background-color: #101010;
+}
+
+.def-link {
+    color: #ffff;
+}
+
+.def-link:hover {
+    color: #ffff;
+}
+
+.sm-form-background {
+    background-color: #0D7377;
+    height: 100vh;
+}
+
+.sm-form-body {
+    background-color: #323232;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 37rem;
+}
+
+.sm-form-input {
+    background-color: #6D6D6D;
+    padding: 0.5rem;
+    width: 100%;
+    color: #ffff;
+    border: unset;
+    outline: unset;
+    border-radius: 0.5rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffff !important;
+    transition: background-color 2000000s ease-in-out 0s;
+}
+
+.bug-show-info-td {
+    padding-right: 1rem;
+    padding-bottom: 0.7rem;
+}
+
+.bug-show-info-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #0D7377;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    width: 99%;
+}
+
+hr {
+    background-color: #fff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: #6D6D6D;
+    ;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #C4C4C4;
+}
+
+.team-member-option {
+    background-color: #6D6D6D;
+    color: #fff;
+}

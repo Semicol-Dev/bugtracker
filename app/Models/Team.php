@@ -30,10 +30,10 @@ class Team extends Model
     }
 
     public function all_issues(){
-        $all_issues = array();
+        $all_issues = collect();
         foreach ($this->projects as $project) {
             foreach ($project->issues as $issue) {
-                array_push($all_issues,$issue);
+                $all_issues->push($issue);
             }
         }
         return $all_issues;
