@@ -3,6 +3,10 @@
     opacity: 1;
 }
 
+body {
+    background-color: #101010;
+}
+
 .my-search {
     border-radius: 10px;
     display: flex;
@@ -253,4 +257,10 @@ input[type="file"] {
 .team-member-option {
     background-color: #6D6D6D;
     color: #fff;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1700px;
+    }
 }
