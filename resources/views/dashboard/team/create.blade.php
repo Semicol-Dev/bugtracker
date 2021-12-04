@@ -44,7 +44,7 @@
                         
                     </div>
                     <div class="col d-flex justify-content-start">
-                        <h5>Team:</h5>
+                        <h5>Team Members:</h5>
                     </div>
                     
                 </div> 
@@ -53,7 +53,7 @@
                         
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <select class=" sm-form-input" name="members[]" multiple size="6">
+                        <select class=" sm-form-input" name="members[]" multiple size="6" >
                             @foreach ($users as $user)
                                 <option value="{{$user->id}}" id="">{{$user->name}}</option>
                             @endforeach
