@@ -137,9 +137,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         if (auth()->user()->isAdmin()){
-            $user = User::findOrFail($id);
-            $user->delete();
-            return redirect('/user/admin');
+            if (auth()->user()->id != $id){
+                $user = User::findOrFail($id);
+                $user->delete();
+                return redirect('/user/admin');
+            } else {
+                return redirect('/user/admin');
+            }
         } else {
             abort(404);
         }
