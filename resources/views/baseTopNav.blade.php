@@ -20,7 +20,9 @@
             
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/user/admin">Administration</a>
+            @if (auth()->user()->isAdmin())
+              <a class="dropdown-item" href="/user/admin">Administration</a>
+            @endif
             <a class="dropdown-item" href="/user">Settings</a>
             <a class="dropdown-item" onclick='$("#logout_form").submit();' href="#">Logout</a>
           </div>
