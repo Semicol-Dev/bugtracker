@@ -49,6 +49,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'email|required',
+            'password' => 'required',
+        ]);
+
         if (auth()->user()->isAdmin()){
             $user = new User;
             $user->name = $request->name;
