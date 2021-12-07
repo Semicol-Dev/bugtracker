@@ -140,9 +140,10 @@ class TeamController extends Controller
         if (auth()->user()->isAdmin()){
             
             $team = Team::findOrFail($id);
-            return $team->complete_del();
+            $team->complete_del();
             // redirect to team page
             return redirect('/team');
         }
+        
     }
 }
