@@ -60,13 +60,17 @@ body {
     height: calc(100vh - 74px);
 }
 
-.side-menu a {
+.side-menu nav {
     color: #ffff;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 1.8rem;
     line-height: 2rem;
+}
+
+.side-menu a {
+    color: #ffff;
 }
 
 .side-menu a:hover {
@@ -104,10 +108,12 @@ body {
     line-height: 1rem;
 }
 
-.btn-disclaimer {
-    position: fixed;
-    left: 2rem;
-    bottom: 2.5rem;
+.btn-drop {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 100;
 }
 
 .btn-bug-template {
