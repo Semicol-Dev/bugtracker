@@ -1,7 +1,7 @@
 @extends('baseTopNav')
 @section('contentUnder')
 
-<div class="container-fluid"> 
+<div class="container"> 
     <div class="row " >
       <div class="col-2 side-menu">
         <div class="row">
@@ -15,8 +15,13 @@
            
           </div>
         </div>
+        <div class="row justify-content-center" style=" height: calc(100vh - 350px)">
+          <div class="col-10 align-self-end">
+            <a class="btn btn-info btn-bug-template" style="color: #121212" type="submit" href="/issue/create" ><i class="bi bi-bug-fill"></i>Report Bug</a>
+          </div>
+        </div>
       </div> 
-      <a class="btn btn-info btn-bug-template btn-disclaimer" style="color: #121212" type="submit" href="/issue/create" ><i class="bi bi-bug-fill"></i>Report Bug</a>
+     
       <div class="col" style="background-color: #101010;
       ">
   
