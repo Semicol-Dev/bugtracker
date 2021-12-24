@@ -44,9 +44,12 @@ $loopCount = 0
                     @method('delete')
                     @csrf
                     <button onclick="document.getElementById('delete').submit();" class="btn btn-danger btn-bug-template" >
-                        <i class="bi bi-trash-fill"></i>Delete
+                        <i class="bi bi-trash-fill"></i>Delete 
                     </button>
                 </form>
+            @endif
+            @if ($issue->assigned_user_id == auth()->user()->id && $issue->status == 0)
+                <a class="btn btn-success btn-bug-template" href="/issue/{{ $issue->id }}/close"><i class="bi bi-check"></i>Solve</a>
             @endif
         </div>
         <div class="row pt-1 d-flex justify-content-end" >
