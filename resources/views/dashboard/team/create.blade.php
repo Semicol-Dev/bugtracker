@@ -53,7 +53,7 @@
                         
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <select class=" sm-form-input" name="members[]" multiple size="6" >
+                        <select class=" sm-form-input" name="members[]" multiple size="6" required>
                             @foreach ($users as $user)
                                 <option value="{{$user->id}}" id="">{{$user->name}}</option>
                             @endforeach
